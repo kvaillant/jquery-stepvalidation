@@ -40,12 +40,12 @@
 	// override these in your code to change the default behavior and style
 	$.stepValidation.defaults = {
 		
-		ajaxParams: [], // List ajax param for each ajax request
-		timeout: 0, // timeout in ms between each ajax call
-		breakOnFail: true, // Arrêt des étapes lors d'une erreur Ajax	
-		onBeforeNextStep:  function() {},
-		onNextStep :  function() {}, // Parameters = Current ajax param, current step number
-        onComplete :  function() {}
+			ajaxParams: [], // List ajax param for each ajax request
+			timeout: 0, // timeout in ms between each ajax call
+			breakOnFail: true, // Arret des etapes lors d'une erreur Ajax, Stop next ajax request on failure
+			onBeforeNextStep:  function() {}, // handler before next ajax request call
+			onNextStep :  function() {}, // Parameters = Current ajax param, current step number
+	        onComplete :  function() {} // handler for the end of process
 	}
 	
 	function _start(el){

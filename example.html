@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Ajax step validation</title>
+</head>
+<body>
+	<header>
+		<h1>My first Ajax Form validation step</h1>
+	</header>
+	<nav></nav>
+	<section>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var ajaxParams = [{
+				type : 'POST',
+				 data: {'data':'blablabla'},
+				url : './example/monPremierServiceAjax',	
+				success : function(data, textStatus, XMLHttpRequest) {
+					// traitement du résultat
+					
+				}
+			}];
+			ajaxParams.push({
+				type : 'POST',
+				 data: {'data':'bonjour'},
+				url : './example/monSecondServiceAjax',	
+				success : function(data, textStatus, XMLHttpRequest) {
+					// traitement du résultat
+					
+				}
+			});
+			var stepV = $.stepValidation({
+				ajaxParams : ajaxParams,
+				onBeforeNextStep:  function(previousResult) {},
+				onNextStep :  function(params,step) {}, // Parameters = Current ajax param, current step number
+				onComplete : function(){
+					// Fin du traitement
+				}
+			}).start();
+			
+		});
+	</script>
+	</section>
+	<footer></footer>
+</body>
+</html>
